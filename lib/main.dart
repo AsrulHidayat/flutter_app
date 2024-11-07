@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
 }
 
 class Heading extends StatelessWidget {
-  final String text;
+  final String text; // state text bersifat final,  Nilainya hanya dapat diisi melalui constructor class-nya.
 
-  const Heading({Key? key, required this.text}) : super(key: key);
+  const Heading({Key? key, required this.text}) : super(key: key); // lalu state text masuk ke constructor
 
   @override
   Widget build(BuildContext context){
@@ -39,3 +39,4 @@ class Heading extends StatelessWidget {
     );
   }
 }
+
