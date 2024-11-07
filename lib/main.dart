@@ -1,37 +1,38 @@
-import 'package:flutter/material.dart'; // memanggil fungsi-fungsi dari berkas flutter lain
+import 'package:flutter/material.dart';
 
-void main() { // flutter akan menjalan fungsi main() pertama kali lalu lanjut ke runApp() dan memanggil MyApp()
-  runApp(MyApp());
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const Scaffold(
+        body: Center(
+          child: Text("Hello world!"), // text biasa
+        ),
+      ),
+    );
+  }
 }
 
-class MyApp extends StatelessWidget { // Mendefinisikan widget MyApp
+class Heading extends StatelessWidget {
+  final String text;
+
+  const Heading({Key? key, required this.text}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) { // Fungsi build yang menghasilkan tampilan aplikasi
-    return MaterialApp(
-      title: 'Flutter Demo', // Judul aplikasi, digunakan oleh beberapa platform tetapi tidak ditampilkan langsung di UI
-      theme: ThemeData(
-        primarySwatch: Colors.blue, // Tema utama aplikasi dengan warna biru
-      ),
-      home: Scaffold( // Struktur dasar halaman (app bar, body, dll.)
-        appBar: AppBar(
-          title: Text('Hello, world!'), // Teks judul di AppBar
-        ),
-        body: Center( // Widget untuk menengahkan elemen di dalamnya
-          child: Column( // Menyusun elemen (Text dan Button) secara vertikal
-            mainAxisAlignment: MainAxisAlignment.center, // Pusatkan elemen secara vertikal
-            children: [
-              Text('Hello, world!'), // Widget Text yang menampilkan pesan di layar
-              SizedBox(height: 20), // Menambahkan spasi vertikal antara teks dan tombol
-              ElevatedButton( // Membuat tombol dengan gaya ElevatedButton
-                onPressed: () {
-                  // Aksi saat tombol ditekan
-                  print('Button Pressed'); // Mencetak teks ke konsol saat tombol ditekan
-                },
-                child: Text('Click Me'), // Teks yang muncul pada tombol
-              ),
-            ],
-          ),
-        ),
+  Widget build(BuildContext context){
+    return Text(
+      text,
+      style: const TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
