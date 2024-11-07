@@ -43,8 +43,6 @@ dependencies:
   # kita juga bisa gunakan versi minimal dan maksimal seperti contoh ‘>=0.1.2 <2.0.0’ yang artinya kita akan menggunakan versi terbaru yang ada pada saat ini yang masih berada di dalam range tersebut yaitu lebih besar sama dengan 0.1.2 dan lebih kecil dari 2.0.0.
 
 
-  provider: ^4.0.1
-
 dev_dependencies:
   # dev_dependencies digunakan untuk package-package yang berkaitan ketika proses pengembangan aplikasi Flutter
   flutter_test:
