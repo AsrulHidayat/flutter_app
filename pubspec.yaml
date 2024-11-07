@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  # dependencies digunakan untuk package-package yang langsung berkaitan dengan fitur aplikasi Flutter
+  # contohnya seperti cupertino_icons yang digunakan untuk mendapatkan ikon-ikon cupertino (icon untuk iOS) dan contoh lainnya seperti cloud_firestore yang merupakan package untuk firebase firestore.
   flutter:
     sdk: flutter
 
@@ -35,9 +37,18 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  # mendaftarkan package dapat ditulis seperti di atas, dengan format "nama_package : versi"
+  # Penulisan versi bisa langsung seperti contoh 1.0.8, atau kita menambahkan simbol caret (^) seperti ^1.0.8
+  # Simbol caret (^) artinya: gunakan versi patch terbaru dari versi yang telah ditentukan. Jika versi nya ^0.1.2 artinya kita akan gunakan versi minimal 0.1.2 dan maksimal versi terbaru.
+  # kita juga bisa gunakan versi minimal dan maksimal seperti contoh ‘>=0.1.2 <2.0.0’ yang artinya kita akan menggunakan versi terbaru yang ada pada saat ini yang masih berada di dalam range tersebut yaitu lebih besar sama dengan 0.1.2 dan lebih kecil dari 2.0.0.
+
+
+  provider: ^4.0.1
 
 dev_dependencies:
+  # dev_dependencies digunakan untuk package-package yang berkaitan ketika proses pengembangan aplikasi Flutter
   flutter_test:
+    # contohnya seperti flutter_test yang digunakan untuk testing.
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -46,6 +57,19 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+
+# Cara menggunakan private package
+# contoh 1 : dengan url
+
+# dependencies:
+#   plugin1:
+#     git:
+#       url: git://github.com/flutter/plugin1.git
+
+# contoh 2 : yang tersimpan secara offline di komputer
+# dependencies:
+#   plugin1:
+#     path: ../plugin1/
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
