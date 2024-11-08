@@ -13,15 +13,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.blue,
-        )
+        ),
       ),
-      home: const FirstScreen(),// Panggil FirstScreen di sini
-
+      home: const FirstScreen(), // Panggil FirstScreen di sini
     );
   }
 }
-
-// Sekarang kita akan membuat scaffold yang terdiri atas AppBar, Body, dan FloatingActionButton yang merupakan kerangka atau widget penting dalam flutter, sebenarnya masih banyak tapi 3 komponen ini adalah yang paling utama.
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -29,9 +26,9 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( // Membuat AppBar yang berada paling atas aplikasi
+      appBar: AppBar(
         title: const Text('First Screen'),
-        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold ),
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         actions: <Widget>[
           IconButton(
             icon: const Icon(
@@ -39,7 +36,7 @@ class FirstScreen extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {},
-          )
+          ),
         ],
         leading: IconButton(
           icon: const Icon(
@@ -49,58 +46,65 @@ class FirstScreen extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: Center( // Penambahan Body, Badan Aplikasi
+      body: Column( // Menggunakan Column untuk menempatkan widget secara vertikal
+        mainAxisAlignment: MainAxisAlignment.start, // Menyusun secara vertikal ke atas
+        children: <Widget>[
 
-        // Saatnya belajar container, Container adalah widget yang digunakan untuk melakukan styling, membuat sebuah shape (bentuk), dan layout pada widget child-nya.
-        child: Container(
-          color: Colors.transparent, // Pastikan latar belakang container tetap transparan
-          child: Align(
-            alignment: Alignment.topLeft, // Posisikan teks di pojok kiri atas
+          Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row( // Row di atas Container
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Menyusun item di dalam Row ke tengah
+                children: const <Widget>[
+                  Icon(Icons.share, color: Colors.blue),
+                  Icon(Icons.thumb_up, color: Colors.blue),
+                  Icon(Icons.thumb_down,color: Colors.blue),
+              ],
+            ),
+          ),
 
-            // Widget Center, merupakan sebuah widget yang digunakan untuk membuat suatu widget berada pada posisi tengah.
-            child: Center(
-            child: Container(
+          const SizedBox(height: 20), // Memberikan jarak antara Row dan Container
 
-              // Mengenal decoration, Decoration merupakan bagian dari Container untuk styling. Pada decoration kita dapat menentukan warna background (solid/gradient color), shadow, border, border radius (membulatkan sudut), mengatur shape (bentuk), dan lain-lain.
-              decoration: BoxDecoration(
-                color: Colors.red,
-                // shape: BoxShape.circle,
-                border: Border.all(color: Colors.orange, width: 3),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: const [
-                  BoxShadow(
-                      color: Colors.black,
-                      offset: Offset(3, 6),
-                      blurRadius: 10,
-                  )
-                ]
-              ),
-
-              // width: 80,
-              // height: 80, // width dan height ialah container dalam teks
-              // padding: const EdgeInsets.all(10), // Memberikan ruang di sekitar teks
-
-              margin: const EdgeInsets.all(10), // Memberikan Ruang terluar di atas lapisan dari padding
-
-              // Di bawah ini adalah widget padding, widget Padding merupakan sebuah widget yang khusus untuk memberikan padding pada suatu widget.
-
-              child: Padding(
-                padding: const EdgeInsets.all(30),
-                child: const Text(
-                'Hi',
-                style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.white, // Warna teks tetap putih
+          // Container yang ada sebelumnya
+          Container(
+            decoration: BoxDecoration( // Gunakan BoxDecoration untuk styling
+              color: Colors.red, // Tentukan warna dalam BoxDecoration
+              border: Border.all(color: Colors.orange, width: 3),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(3, 6),
+                  blurRadius: 10,
                 ),
-              ),
+              ],
+            ),
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(30),
+            child: const Text(
+              'Hi',
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.white,
               ),
             ),
           ),
-          ),
-        ),
+
+          const SizedBox(height: 20), // Memberikan jarak antara Container dan Row berikutnya
+
+          Column(
+            children: const <Widget>[
+              Text(
+                'Sebuah Judul',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+              Text('Lorem ipsum dolor sit amet'),
+            ],
+          )
+
+        ],
       ),
 
-      floatingActionButton: FloatingActionButton( // ingat awalan huruf kecil atau camelCase menandakan kalau itu adalah property. Sedangkan awalan kapital menandakan bahwa itu adalah Class.
+      floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {},
       ),
