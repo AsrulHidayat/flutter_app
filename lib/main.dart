@@ -70,22 +70,29 @@ class FirstScreen extends StatelessWidget {
                   )
                 ]
               ),
-              width: 80,
-              height: 80, // width dan height ialah container dalam teks
-              padding: const EdgeInsets.all(10), // Memberikan ruang di sekitar teks
+
+              // width: 80,
+              // height: 80, // width dan height ialah container dalam teks
+              // padding: const EdgeInsets.all(10), // Memberikan ruang di sekitar teks
+
               margin: const EdgeInsets.all(10), // Memberikan Ruang terluar di atas lapisan dari padding
-              child: const Text(
+
+              // Di bawah ini adalah widget padding, widget Padding merupakan sebuah widget yang khusus untuk memberikan padding pada suatu widget.
+
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: const Text(
                 'Hi',
                 style: TextStyle(
                   fontSize: 40,
                   color: Colors.white, // Warna teks tetap putih
                 ),
               ),
+              ),
             ),
           ),
         ),
       ),
-
 
       floatingActionButton: FloatingActionButton( // ingat awalan huruf kecil atau camelCase menandakan kalau itu adalah property. Sedangkan awalan kapital menandakan bahwa itu adalah Class.
         child: const Icon(Icons.add),
