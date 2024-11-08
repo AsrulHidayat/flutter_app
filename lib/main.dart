@@ -49,9 +49,31 @@ class FirstScreen extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: const Center( // Penambahan Body, Badan Aplikasi
-        child: Text('Hello world'),
+      body: Center( // Penambahan Body, Badan Aplikasi
+        child: Container(
+          color: Colors.transparent, // Pastikan latar belakang container tetap transparan
+          child: Align(
+            alignment: Alignment.topLeft, // Posisikan teks di pojok kiri atas
+            // Saatnya belajar container, Container adalah widget yang digunakan untuk melakukan styling, membuat sebuah shape (bentuk), dan layout
+            child: Container(
+              color: Colors.blue, // Latar belakang biru untuk sekitar teks'
+              width: 80,
+              height: 80, // width dan height ialah container dalam teks
+              padding: const EdgeInsets.all(10), // Memberikan ruang di sekitar teks
+              margin: const EdgeInsets.all(10), // Memberikan Ruang terluar di atas lapisan dari padding
+              child: const Text(
+                'Hi',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white, // Warna teks tetap putih
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
+
+
       floatingActionButton: FloatingActionButton( // ingat awalan huruf kecil atau camelCase menandakan kalau itu adalah property. Sedangkan awalan kapital menandakan bahwa itu adalah Class.
         child: const Icon(Icons.add),
         onPressed: () {},
