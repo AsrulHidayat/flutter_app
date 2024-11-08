@@ -50,12 +50,17 @@ class FirstScreen extends StatelessWidget {
         ),
       ),
       body: Center( // Penambahan Body, Badan Aplikasi
+
+        // Saatnya belajar container, Container adalah widget yang digunakan untuk melakukan styling, membuat sebuah shape (bentuk), dan layout pada widget child-nya.
         child: Container(
           color: Colors.transparent, // Pastikan latar belakang container tetap transparan
           child: Align(
             alignment: Alignment.topLeft, // Posisikan teks di pojok kiri atas
-            // Saatnya belajar container, Container adalah widget yang digunakan untuk melakukan styling, membuat sebuah shape (bentuk), dan layout pada widget child-nya.
+
+            // Widget Center, merupakan sebuah widget yang digunakan untuk membuat suatu widget berada pada posisi tengah.
+            child: Center(
             child: Container(
+
               // Mengenal decoration, Decoration merupakan bagian dari Container untuk styling. Pada decoration kita dapat menentukan warna background (solid/gradient color), shadow, border, border radius (membulatkan sudut), mengatur shape (bentuk), dan lain-lain.
               decoration: BoxDecoration(
                 color: Colors.red,
@@ -90,6 +95,7 @@ class FirstScreen extends StatelessWidget {
               ),
               ),
             ),
+          ),
           ),
         ),
       ),
