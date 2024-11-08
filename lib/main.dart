@@ -54,9 +54,22 @@ class FirstScreen extends StatelessWidget {
           color: Colors.transparent, // Pastikan latar belakang container tetap transparan
           child: Align(
             alignment: Alignment.topLeft, // Posisikan teks di pojok kiri atas
-            // Saatnya belajar container, Container adalah widget yang digunakan untuk melakukan styling, membuat sebuah shape (bentuk), dan layout
+            // Saatnya belajar container, Container adalah widget yang digunakan untuk melakukan styling, membuat sebuah shape (bentuk), dan layout pada widget child-nya.
             child: Container(
-              color: Colors.blue, // Latar belakang biru untuk sekitar teks'
+              // Mengenal decoration, Decoration merupakan bagian dari Container untuk styling. Pada decoration kita dapat menentukan warna background (solid/gradient color), shadow, border, border radius (membulatkan sudut), mengatur shape (bentuk), dan lain-lain.
+              decoration: BoxDecoration(
+                color: Colors.red,
+                // shape: BoxShape.circle,
+                border: Border.all(color: Colors.orange, width: 3),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black,
+                      offset: Offset(3, 6),
+                      blurRadius: 10,
+                  )
+                ]
+              ),
               width: 80,
               height: 80, // width dan height ialah container dalam teks
               padding: const EdgeInsets.all(10), // Memberikan ruang di sekitar teks
