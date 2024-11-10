@@ -9,7 +9,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wisata Bandung',
-      theme: ThemeData(),
+      theme: ThemeData(
+        fontFamily: 'Oswald',
+        primarySwatch: Colors.blue,
+      ),
       home: const DetailScreen(),
     );
   }
@@ -88,7 +91,9 @@ class DetailScreen extends StatelessWidget {
                 child: const Text(
                   'Malino Highlands adalah destinasi wisata pegunungan yang memukau di Sulawesi Selatan, terkenal dengan pemandangan hijau yang membentang luas, kebun teh yang asri, serta udara sejuk yang menyegarkan. Terletak di dataran tinggi Gowa, tempat ini menawarkan pengalaman unik dengan panorama alam yang memanjakan mata, lengkap dengan spot foto yang instagramable. Pengunjung bisa menikmati berjalan-jalan di antara perkebunan teh, menghirup udara segar, atau bersantai di kafe sambil menikmati teh lokal. Malino Highlands juga memiliki taman bunga yang indah dan berbagai fasilitas rekreasi yang cocok untuk wisata keluarga atau liburan romantis.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16.0),
+                  style: TextStyle(
+                      fontSize: 16.0,
+                  ),
                 ),
               ),
               Container(
@@ -97,7 +102,11 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     const Text(
                       'Belajar Button Dulu Ya',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontFamily: 'Oswald',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
                     const SizedBox(height: 16.0), // Jarak antara teks dan tombol
                     ElevatedButton(

@@ -83,7 +83,12 @@ flutter:
   assets:
       - images/malino.jpg
 
-  #   - images/a_dot_ham.jpeg
+  fonts:
+    - family: Oswald
+      fonts:
+        - asset: fonts/Oswald/Oswald-Regular.ttf
+
+        #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
