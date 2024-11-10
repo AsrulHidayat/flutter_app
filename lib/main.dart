@@ -38,6 +38,23 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               Container(
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.network(
+                    'https://i.pinimg.com/564x/32/ce/98/32ce98432995d6ae16702831c66016ed.jpg',
+                    width: 200,
+                    height: 200,
+                  ),
+                  Image.asset(
+                      'images/malino.jpg',
+                      width: 200,
+                      height: 200
+                  ),
+                ],
+              ),
+              ),
+              Container(
                 margin: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -189,101 +206,101 @@ class _FirstScreenState extends State<FirstScreen> {
               padding: const EdgeInsets.all(24.0), // Ubah nilai sesuai kebutuhan
               child: Column(
                 children: [
-                TextField(
-                  // onChanged: (String value) { // Parameter onChanged berisi sebuah fungsi yang akan dipanggil setiap terjadi perubahan inputan pada TextField.
-                    decoration: const InputDecoration(
-                      hintText: 'Write your name here...',
-                      labelText: 'Your Name',
-                     ),
-                    onChanged: (String value){
-                      setState(() {
-                        _name = value;
-                      });
-                    },
-                ),
-                const SizedBox(height: 20,),
-                ElevatedButton(
-                    child: const Text('Submit'),
-                    onPressed: (){
-                      showDialog(
-                          context: context,
-                          builder: (context){
-                            return AlertDialog(
-                              content: Text('Hello, $_name'),
-                            );
-                          });
-                       },
-                ),
-                Switch(
-                    value: lighton,
-                    onChanged: (bool value){
-                      setState(() {
-                        lighton = value;
-                      });
+                  TextField(
+                    // onChanged: (String value) { // Parameter onChanged berisi sebuah fungsi yang akan dipanggil setiap terjadi perubahan inputan pada TextField.
+                      decoration: const InputDecoration(
+                        hintText: 'Write your name here...',
+                        labelText: 'Your Name',
+                       ),
+                      onChanged: (String value){
+                        setState(() {
+                          _name = value;
+                        });
+                      },
+                  ),
+                  const SizedBox(height: 20,),
+                  ElevatedButton(
+                      child: const Text('Submit'),
+                      onPressed: (){
+                        showDialog(
+                            context: context,
+                            builder: (context){
+                              return AlertDialog(
+                                content: Text('Hello, $_name'),
+                              );
+                            });
+                         },
+                  ),
+                  Switch(
+                      value: lighton,
+                      onChanged: (bool value){
+                        setState(() {
+                          lighton = value;
+                        });
 
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(lighton? 'light on' : 'light off'),
-                            duration: Duration(seconds: 1),
-                          ),
-                      );
-                    }
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ListTile(
-                      leading: Radio<String>(
-                          value: 'Dart', 
-                          groupValue: language, 
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(lighton? 'light on' : 'light off'),
+                              duration: Duration(seconds: 1),
+                            ),
+                        );
+                      }
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                        leading: Radio<String>(
+                            value: 'Dart',
+                            groupValue: language,
+                            onChanged: (String? value){
+                              setState(() {
+                                language = value;
+                                showSnackbar();
+                              });
+                            },
+                        ),
+                        title: Text('Dart'),
+                      ),
+                      ListTile(
+                        leading: Radio<String>(
+                          value: 'Kotlin',
+                          groupValue: language,
                           onChanged: (String? value){
                             setState(() {
                               language = value;
                               showSnackbar();
                             });
                           },
+                        ),
+                        title: Text('Kotlin'),
                       ),
-                      title: Text('Dart'),
-                    ),
-                    ListTile(
-                      leading: Radio<String>(
-                        value: 'Kotlin',
-                        groupValue: language,
-                        onChanged: (String? value){
-                          setState(() {
-                            language = value;
-                            showSnackbar();
-                          });
-                        },
+                      ListTile(
+                        leading: Radio<String>(
+                          value: 'Swift',
+                          groupValue: language,
+                          onChanged: (String? value){
+                            setState(() {
+                              language = value;
+                              showSnackbar();
+                            });
+                          },
+                        ),
+                        title: Text('Swift'),
                       ),
-                      title: Text('Kotlin'),
-                    ),
-                    ListTile(
-                      leading: Radio<String>(
-                        value: 'Swift',
-                        groupValue: language,
-                        onChanged: (String? value){
-                          setState(() {
-                            language = value;
-                            showSnackbar();
-                          });
-                        },
-                      ),
-                      title: Text('Swift'),
-                    ),
-                  ],
-                ),
-                ListTile(
-                  leading: Checkbox(
-                      value: agree, 
-                      onChanged: (bool? value) {
-                        setState(() {
-                          agree = value!;
-                        });
-                      },
+                    ],
                   ),
-                  title: Text('Agree / Disagree'),
-                ),
+                  ListTile(
+                    leading: Checkbox(
+                        value: agree,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            agree = value!;
+                          });
+                        },
+                    ),
+                    title: Text('Agree / Disagree'),
+                  ),
                 ],
               ),
             ),
