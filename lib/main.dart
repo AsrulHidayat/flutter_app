@@ -24,7 +24,6 @@ class FirstScreen extends StatefulWidget {
   @override
   State<FirstScreen> createState() => _FirstScreenState();
 }
-
 class _FirstScreenState extends State<FirstScreen> {
   String? language;
   String _name = '';
@@ -193,8 +192,9 @@ class ScrollingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: numberList.map((number) {
+      body: ListView.builder(
+        itemCount: numberList.length,
+        itemBuilder: (BuildContext context, int index) {
           return Container(
             height: 250,
             decoration: BoxDecoration(
@@ -203,7 +203,7 @@ class ScrollingScreen extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-               '$number',
+                '${numberList[index]}',
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.white,
@@ -211,10 +211,8 @@ class ScrollingScreen extends StatelessWidget {
               ),
             ),
           );
-        }).toList(),
+        },
       ),
     );
   }
 }
-
-
