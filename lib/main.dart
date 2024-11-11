@@ -192,7 +192,7 @@ class ScrollingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: numberList.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
@@ -211,6 +211,9 @@ class ScrollingScreen extends StatelessWidget {
               ),
             ),
           );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider();
         },
       ),
     );
