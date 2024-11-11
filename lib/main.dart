@@ -188,78 +188,30 @@ class _FirstScreenState extends State<FirstScreen> {
 }
 
 class ScrollingScreen extends StatelessWidget {
-  const ScrollingScreen({Key? key}) : super(key: key);
+  final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: <Widget>[
-          Container(
+        children: numberList.map((number) {
+          return Container(
             height: 250,
             decoration: BoxDecoration(
               color: Colors.blue,
               border: Border.all(color: Colors.white),
             ),
-            child: const Center(
+            child: Center(
               child: Text(
-                '1',
+               '$number',
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.white,
                 ),
               ),
             ),
-          ),
-          Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              border: Border.all(color: Colors.white),
-            ),
-            child: const Center(
-              child: Text(
-                '2',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              border: Border.all(color: Colors.white),
-            ),
-            child: const Center(
-              child: Text(
-                '3',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              border: Border.all(color: Colors.white),
-            ),
-            child: const Center(
-              child: Text(
-                '4',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
+          );
+        }).toList(),
       ),
     );
   }
