@@ -9,9 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Bandung',
+      title: 'Wisata Gowa',
       theme: ThemeData(
-        fontFamily: 'Oswald',
         primarySwatch: Colors.blue,
       ),
       home: const DetailScreen(),
@@ -184,6 +183,36 @@ class _FirstScreenState extends State<FirstScreen> {
     content: Text('$language selected'),
     duration: Duration(seconds: 1) ,
     ),
+    );
+  }
+}
+
+class ScrollingScreen extends StatelessWidget {
+  final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: numberList.map((number) {
+          return Container(
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              border: Border.all(color: Colors.white),
+            ),
+            child: Center(
+              child: Text(
+               '$number',
+                style: TextStyle(
+                  fontSize: 50,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
     );
   }
 }
