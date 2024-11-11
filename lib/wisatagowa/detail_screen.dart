@@ -103,23 +103,47 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ScrollingScreen()),
+                        );
+                      },
+                      child: const Text('List View'),
+                    ),
+                  ),
                 ),
-                onPressed: () {
-                  // Navigasi ke halaman FirstScreen
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ScrollingScreen()),
-                  );
-                },
-                child: const Text('Lanjut Belajar'),
+                Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Rainbow()),
+                          );
+                        },
+                        child: const Text('Expanded'),
+                      ),
+                    ),
+                ),
+                ],
               ),
-            ),
           ],
         ),
       ),

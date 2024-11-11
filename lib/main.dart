@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
 
@@ -185,7 +184,6 @@ class _FirstScreenState extends State<FirstScreen> {
     );
   }
 }
-
 class ScrollingScreen extends StatelessWidget {
   final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -219,3 +217,54 @@ class ScrollingScreen extends StatelessWidget {
     );
   }
 }
+class Rainbow extends StatelessWidget{
+  const Rainbow({Key? key}) : super(key : key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        // widget Expanded sama halnya dengan auto layout yang dapat mengembangkan child dari Row atau Column sesuai dengan ruang yang tersedia.
+        Expanded(
+            child: Container(
+              color: Colors.red,
+            ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.orange,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.yellow,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.green,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.blue,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.indigo,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.purple,
+          ),
+        ),
+      ],
+    );
+  }
+
+}
+
+
+
