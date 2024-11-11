@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
+import 'package:flutter_app/study/expanded_and_flexible.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -67,7 +68,7 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: const Text(
                 'Malino Highlands adalah destinasi wisata pegunungan yang memukau di Sulawesi Selatan, terkenal dengan pemandangan hijau yang membentang luas, kebun teh yang asri, serta udara sejuk yang menyegarkan. Terletak di dataran tinggi Gowa, tempat ini menawarkan pengalaman unik dengan panorama alam yang memanjakan mata, lengkap dengan spot foto yang instagramable. Pengunjung bisa menikmati berjalan-jalan di antara perkebunan teh, menghirup udara segar, atau bersantai di kafe sambil menikmati teh lokal. Malino Highlands juga memiliki taman bunga yang indah dan berbagai fasilitas rekreasi yang cocok untuk wisata keluarga atau liburan romantis.',
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 16.0,
                 ),
@@ -141,7 +142,7 @@ class DetailScreen extends StatelessWidget {
                         child: const Text('Expanded'),
                       ),
                     ),
-                ),
+                  ),
                 ],
               ),
           ],

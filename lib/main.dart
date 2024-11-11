@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'wisatagowa/detail_screen.dart';
+import 'package:flutter_app/study/expanded_and_flexible.dart';
 
 void main() => runApp(const MyApp());
 
@@ -217,55 +218,9 @@ class ScrollingScreen extends StatelessWidget {
     );
   }
 }
-class Rainbow extends StatelessWidget{
-  const Rainbow({Key? key}) : super(key : key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // widget Expanded sama halnya dengan auto layout yang dapat mengembangkan child dari Row atau Column sesuai dengan ruang yang tersedia.
-        Expanded(
-            child: Container(
-              color: Colors.red,
-            ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.orange,
-          ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.yellow,
-          ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.green,
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: Container(
-            color: Colors.blue,
-          ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.indigo,
-          ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.purple,
-          ),
-        ),
-      ],
-    );
-  }
 
-}
+
 
 
 
