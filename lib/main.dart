@@ -9,9 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Bandung',
+      title: 'Wisata Gowa',
       theme: ThemeData(
-        fontFamily: 'Oswald',
         primarySwatch: Colors.blue,
       ),
       home: const DetailScreen(),

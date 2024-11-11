@@ -75,9 +75,6 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-#   the material Icons class.
   uses-material-design: true
 
   assets:
@@ -87,8 +84,13 @@ flutter:
     - family: Oswald
       fonts:
         - asset: fonts/Oswald/Oswald-Regular.ttf
+    - family: Staatliches
+      fonts:
+        - asset: fonts/Staatliches-Regular.ttf
+    - family: Oxygen
+      fonts:
+        - asset: fonts/Oxygen-Regular.ttf
 
-        #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
