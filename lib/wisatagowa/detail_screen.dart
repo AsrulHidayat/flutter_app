@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
 import 'package:flutter_app/study/expanded_and_flexible.dart';
+import 'package:flutter_app/study/navigation.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -33,8 +34,8 @@ class DetailScreen extends StatelessWidget {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Icon(Icons.calendar_today),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.calendar_today),
+                      const SizedBox(height: 8.0),
                       Text(
                         'Open Everyday',
                         style: informationTextStyle,
@@ -43,8 +44,8 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.access_time),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.access_time),
+                      const SizedBox(height: 8.0),
                       Text(
                         '09:00 - 20:00',
                         style: informationTextStyle,
@@ -53,8 +54,8 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(Icons.attach_money_outlined),
-                      SizedBox(height: 8.0),
+                      const Icon(Icons.attach_money_outlined),
+                      const SizedBox(height: 8.0),
                       Text(
                         'RP 25.000',
                         style: informationTextStyle,
@@ -136,7 +137,7 @@ class DetailScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Rainbow()),
+                            MaterialPageRoute(builder: (context) => const Rainbow()),
                           );
                         },
                         child: const Text('Expanded'),
@@ -145,6 +146,44 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
+            const Divider(
+              color: Colors.grey,
+              thickness: 1.0,
+            ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Tes',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ThirdScreen()),
+                          );
+                        },
+                        child: const Text(
+                          '1. Navigation',
+                          style: TextStyle(
+                          fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
