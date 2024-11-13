@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
+import 'package:flutter_app/model/tourism_place.dart';
 import 'package:flutter_app/study/expanded_and_flexible.dart';
 import 'package:flutter_app/study/navigation.dart';
 import 'package:flutter_app/study/responsive_layout.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  final TourismPlace place;
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +17,33 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset('images/malino.jpg'),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Image.asset(place.imageAsset),
             Container(
               margin: const EdgeInsets.all(16),
-              child: const Text(
-                'Malino Highland',
+              child: Text(
+                place.name,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 30.0,
@@ -38,7 +62,7 @@ class DetailScreen extends StatelessWidget {
                       const Icon(Icons.calendar_today),
                       const SizedBox(height: 8.0),
                       Text(
-                        'Open Everyday',
+                        place.openDays,
                         style: informationTextStyle,
                       ),
                     ],
@@ -48,7 +72,7 @@ class DetailScreen extends StatelessWidget {
                       const Icon(Icons.access_time),
                       const SizedBox(height: 8.0),
                       Text(
-                        '09:00 - 20:00',
+                        place.openTime,
                         style: informationTextStyle,
                       ),
                     ],
@@ -58,7 +82,7 @@ class DetailScreen extends StatelessWidget {
                       const Icon(Icons.attach_money_outlined),
                       const SizedBox(height: 8.0),
                       Text(
-                        'RP 25.000',
+                        place.ticketPrice,
                         style: informationTextStyle,
                       ),
                     ],
@@ -68,11 +92,12 @@ class DetailScreen extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'Malino Highlands adalah destinasi wisata pegunungan yang memukau di Sulawesi Selatan, terkenal dengan pemandangan hijau yang membentang luas, kebun teh yang asri, serta udara sejuk yang menyegarkan. Terletak di dataran tinggi Gowa, tempat ini menawarkan pengalaman unik dengan panorama alam yang memanjakan mata, lengkap dengan spot foto yang instagramable. Pengunjung bisa menikmati berjalan-jalan di antara perkebunan teh, menghirup udara segar, atau bersantai di kafe sambil menikmati teh lokal. Malino Highlands juga memiliki taman bunga yang indah dan berbagai fasilitas rekreasi yang cocok untuk wisata keluarga atau liburan romantis.',
+              child: Text(
+                place.description,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 16.0,
+                  fontFamily: 'Oxygen',
                 ),
               ),
             ),
@@ -84,24 +109,18 @@ class DetailScreen extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(8),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network('https://www.malinohighlands.com/uploads/0000/1/2022/08/23/dsc028861.png'),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network('https://www.malinohighlands.com/uploads/0000/1/2022/08/18/a.jpg'),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network('https://www.malinohighlands.com/uploads/0000/1/2022/10/03/628379ae69c43-600.jpg'),
-                    ),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: place.imageUrls.map((url) {
+                        return Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(url),
+                          ),
+                        );
+                        }).toList(),
+                   ),
                   ),
                 ],
               ),
@@ -227,4 +246,26 @@ class DetailScreen extends StatelessWidget {
       ),
     );
   }
+  }class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({Key? key}) : super(key: key);
+
+  @override
+  _FavoriteButtonState createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: Colors.red,
+      ),
+      onPressed: () {
+        isFavorite = !isFavorite;
+      },
+    );
   }
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/wisatagowa/main_screen.dart';
 import 'wisatagowa/detail_screen.dart';
 import 'package:flutter_app/study/expanded_and_flexible.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DetailScreen(),
+      home: const MainScreen(),
     );
   }
 }
