@@ -81,7 +81,14 @@ flutter:
   uses-material-design: true
 
   assets:
-      - images/malino.jpg
+    - images/airTerjunParangloe.jpg
+    - images/tempat-bersantai.jpg
+    - images/biroro-waterfall.jpg
+    - images/tomb-of-sultan-hasanuddin.jpg
+    - images/tanralili-lake.jpg
+    - images/malino.jpg
+    - images/air-terjun-cinta-dengan.jpg
+    - images/padalarang.jpeg
 
   fonts:
     - family: Oswald

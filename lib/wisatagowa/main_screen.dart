@@ -26,12 +26,16 @@ class MainScreen extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       flex: 1,
-                      child: Image.asset(place.imageAsset),
+                      child: Image.asset(
+                        place.imageAsset,
+                        fit: BoxFit.cover, // Ensures large images fit within available space
+                        height: 100, // Set a fixed height if needed
+                      ),
                     ),
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
@@ -47,16 +51,14 @@ class MainScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-
             );
-
-          }
-        )
-
+          },
+          itemCount: tourismPlaceList.length,
+        ),
     );
   }
 }
